@@ -63,15 +63,15 @@
     },
     {
       "name": "mapbox_gl_platform_interface",
-      "rootUri": "file:///Users/ezesoft/.pub-cache/hosted/pub.dev/mapbox_gl_platform_interface-0.16.0",
+      "rootUri": "../../mapbox_gl_platform_interface",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "mapbox_gl_web",
-      "rootUri": "file:///Users/ezesoft/.pub-cache/hosted/pub.dev/mapbox_gl_web-0.16.0",
+      "rootUri": "../../mapbox_gl_web",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "material_color_utilities",
@@ -134,7 +134,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2025-04-09T19:55:37.686250Z",
+  "generated": "2025-04-22T15:52:29.059107Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///Users/ezesoft/fvm/versions/3.29.2",
