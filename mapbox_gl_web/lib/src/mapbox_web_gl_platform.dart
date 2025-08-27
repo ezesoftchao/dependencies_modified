@@ -5,7 +5,7 @@ const _mapboxGlCssUrl =
 
 class MapboxWebGlPlatform extends MapboxGlPlatform
     implements MapboxMapOptionsSink {
-  late DivElement _mapElement;
+  late web.HTMLDivElement _mapElement;
 
   late Map<String, dynamic> _creationParams;
   late MapboxMap _map;
@@ -44,14 +44,16 @@ class MapboxWebGlPlatform extends MapboxGlPlatform
 
   void _registerViewFactory(Function(int) callback, int identifier) {
     // ignore: undefined_prefixed_name
-    ui.platformViewRegistry.registerViewFactory(
-        'plugins.flutter.io/mapbox_gl_$identifier', (int viewId) {
-      _mapElement = DivElement()
-        ..style.width = '100%'
-        ..style.height = '100%';
-      callback(viewId);
-      return _mapElement;
-    });
+    if (kIsWeb) {
+      uiweb.platformViewRegistry.registerViewFactory(
+          'plugins.flutter.io/mapbox_gl_$identifier', (int viewId) {
+        _mapElement = web.HTMLDivElement()
+          ..style.width = '100%'
+          ..style.height = '100%';
+        callback(viewId);
+        return _mapElement;
+      });
+    }
   }
 
   @override
@@ -159,8 +161,8 @@ class MapboxWebGlPlatform extends MapboxGlPlatform
     }
   }
 
-  Future<void> _addStylesheetToShadowRoot(HtmlElement e) async {
-    LinkElement link = LinkElement()
+  Future<void> _addStylesheetToShadowRoot(web.HTMLElement e) async {
+    web.HTMLLinkElement link = web.HTMLLinkElement()
       ..href = _mapboxGlCssUrl
       ..rel = 'stylesheet';
     e.append(link);
